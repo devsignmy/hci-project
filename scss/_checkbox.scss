@@ -1,0 +1,86 @@
+.checkbox {
+	width: 100%;
+	margin-bottom: 8px;
+	position: relative;
+	left: -16px;
+	& > .ripple {
+		width: 48px;
+		height: 48px;
+		padding: 12px;
+		float: left;
+		cursor: pointer;
+		-webkit-transform: translateZ(0);
+		-webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+		@include border-radius(50%);
+		& > svg {
+			z-index: 10;
+			& > .checkactive {
+				transform: scale(0.3);
+				transform-origin: 12px;
+				opacity: 0;
+				@include transition(all 0.2s ease-in-out);
+				fill: #2196F3;
+				& > .check {
+					transform: scaleX(1);
+					transform-origin: 20px;
+					@include transition(transform 0.2s ease-in-out 0.4s);
+					// transition: all 0.1s ease-in-out 0.4s;
+				}
+
+			}
+		}
+
+		& > .ripple-effect {
+			background: #BBB;
+		}
+
+		&.checked {
+			& > svg {
+				& > .checkactive {
+					transform: scale(1);
+					opacity: 1;
+
+					& > .check {
+						transform: scaleX(0);
+					}
+				}
+
+			}
+
+			& > .ripple-effect {
+				background: #2196F3;
+				@include animation(ripple-animation 1s);
+			}
+		}
+	}
+	
+	& > label {
+		margin-top: 12px;
+		display: block;
+		float: left;
+		line-height: 24px;
+		font-size: 14px;
+		font-weight: 400;
+		color: $dft-secondary-text;
+	}
+
+	& input[type="checkbox"] {
+		display:none;
+	}
+
+	&.checkbox-success > .ripple > .svg-check > .checkactive {
+		fill : #4CAF50;
+	}
+
+	&.checkbox-error > .ripple > .svg-check > .checkactive {
+		fill : #F44336;
+	}
+
+	&.checkbox-success > .ripple.checked > .ripple-effect {
+		background : #4CAF50;
+	}
+
+	&.checkbox-error > .ripple.checked > .ripple-effect {
+		background : #F44336;
+	}
+}

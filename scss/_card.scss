@@ -1,0 +1,25 @@
+.card {
+	background-color: $color-white;
+	position: relative;
+	@include border-radius(2px);
+	@include materialShadow(1);
+	margin-bottom: 24px;
+	.card-header {
+		padding: 8px 16px;
+		& > .title {
+			// padding:
+			@include ty-subhead;
+			display: block;
+			font-weight: 400;
+		}
+	}
+
+	.card-description {
+		padding: 16px 16px;
+		padding-bottom: 0;
+	}
+
+	.card-footer {
+		padding: 4px;
+	}
+}

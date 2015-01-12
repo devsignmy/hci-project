@@ -1,0 +1,49 @@
+.tabs {
+    min-width: 100%;
+    width: 100%;
+    height: 56px;
+    position: relative;
+    background: $dft-primary-color;
+    overflow-x: auto;
+    @include box-shadow-z1;
+    
+    .tabs-item {
+        min-width: 100px;
+        display: inline-block;
+        float: left;
+        height: 100%;
+        @include ty-button;
+        line-height: 24px;
+        padding: 16px 24px;
+        color: $dft-text-icon-color;
+        text-align: center;
+        cursor: pointer;
+        @extend .noselect;
+        & svg {
+           fill: $dft-text-icon-color; 
+        }
+    }
+    
+    .indicator {
+        height: 3px;
+        background: $color-yellow;
+        position: absolute;
+        bottom: 0;
+        width: 140px;
+        @include transition((all 0.4s $easeInOutExpo));
+    }
+}
+
+.tabs-body {
+    width: 100%;
+    position: relative;
+    height: auto;
+    @extend .clearfix;
+    overflow: hidden;
+    .tabs-body-item {
+        width: 100%;
+        position: absolute;
+        @include transform(translateX(0));
+        @include transition((transform 1s $easeInOutExpo));
+    }
+}

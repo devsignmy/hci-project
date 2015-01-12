@@ -1,0 +1,122 @@
+.flat-button {
+	min-width: 88px;
+	max-width: 100%;
+	background-color: transparent;
+	display: block;
+	float:left;
+	height: 36px;
+	@include ty-button;
+	line-height: 24px;
+	text-decoration: none;
+	padding: 6px 16px;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+	margin: 0;
+	border: 0;
+	cursor: pointer;
+	@extend .noselect;
+	&.inverse {
+		color: $color-white;
+
+		& svg {
+			fill: $color-white;
+		}
+	}
+
+	&.large {
+		font-size: 16px;
+		height: 48px;
+		padding: 14px 16px;
+	}
+}
+
+.floating-action {
+	width: 56px;
+	height: 56px;
+	background-color: $dft-accent-color;
+	display: block;
+	position: fixed !important;
+	overflow: hidden;
+	@include border-radius(50%);
+	// @include materialShadow(1);
+	@include box-shadow-z1;
+	@include transition(box-shadow 0.4s $easeInOutExpo );
+	padding: 16px;
+	right: 16px;
+	bottom: 16px;
+	z-index: 105;
+	& svg {
+		fill: $dft-text-icon-color;
+	}
+
+	&:hover {
+		@include box-shadow-z2;
+	}
+}
+
+.raised-button {
+    min-width: 88px;
+    max-width: 100%;
+    background-color: $color-grey-200;
+    display: block;
+    float:left;
+    height: 36px;
+    @include ty-button;
+    line-height: 24px;
+    text-decoration: none;
+    padding: 6px 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    border: 0;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    @extend .noselect;
+    @include transition(box-shadow 0.4s $easeInOutExpo );
+    @include border-radius(2px);
+    @include box-shadow-z1;
+    &:hover {
+        @include box-shadow-z2;
+    }
+    
+    &.inverse, &.info,  &.error, &.black, &.success {
+        color: $color-white;
+        background: $dft-primary-color;
+        & svg {
+            fill: $color-white;
+        }
+    }
+    
+    &.inverse {
+        background: $dft-primary-color;
+    }
+    
+    &.info {
+        background: $color-light-blue;
+    }
+    
+    &.warning {
+        background: $color-yellow;
+    }
+    
+    &.error {
+        background: $color-red;
+    }
+    
+    &.black {
+        background: $dft-primary-text;
+    }
+    
+    &.success {
+        background: $color-green ;
+    }
+
+    &.large {
+        font-size: 16px;
+        height: 48px;
+        padding: 14px 16px;
+    }
+}

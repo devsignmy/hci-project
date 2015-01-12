@@ -1,0 +1,26 @@
+.sidefix {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    visibility: hidden;
+    
+    .sidefix-inner {
+//        position: fixed;
+        position: absolute;
+//        width: 
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: $dft-text-icon-color;
+//        width: 256px;
+        visibility: visible;
+        @include box-shadow-z1;
+        padding-top: 56px;
+        overflow: auto;
+        @include breakpoint("xd"){
+            padding-top: 64px;
+        }
+    }
+}

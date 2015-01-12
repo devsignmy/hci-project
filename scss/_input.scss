@@ -1,0 +1,113 @@
+.input-box {
+	position: relative;
+	width: 100%;
+	max-width: 100%;
+	margin-top: 20px;
+	margin-bottom: 24px;
+	@extend .clearfix;
+	input {
+		width: 100%;
+		border: 0;
+		font-size: 15px;
+		background: transparent;
+		color: rgba(0, 0, 0, 0.87);
+		height: 30px;
+		padding-bottom: 6px;
+		border-bottom : 1px solid #D3D3D3;
+		font-family: "Roboto", sans-serif;
+	}
+
+	textarea {
+		width: 100%;
+		border: 0;
+		font-size: 14px;
+		background: transparent;
+		color: rgba(0, 0, 0, 0.87);
+		min-height: 60px;
+		padding-bottom: 14px;
+		margin: 0;
+		border-bottom : 1px solid #D3D3D3;
+		resize: none;
+		font-family: "Roboto", sans-serif;
+	}
+
+	.focus-line {
+		height: 2px;
+		width: 100%;
+		background-color: $dft-accent-color;
+		position: absolute;
+		transform: scaleX(0);
+		@include transition(all 0.2s $easeInOutExpo );
+	}
+
+	&.active > .focus-line{
+		transform: scaleX(1);
+	}
+
+	.placeholder {
+		position: absolute;
+		top: 1px;
+		font-size: 14px;
+		color: #808080;
+		@include transition(all 0.25s ease-in-out );
+		line-height: 20px;
+		&.focus{
+			font-size: 12px;
+			@include transform(translateY(-17px));
+		}
+	}
+
+	&.active > .placeholder {
+		color: $dft-accent-color;
+
+	}
+	&.active > .highlight {
+
+	}
+
+	& > .highlight {
+		height: 20px;
+		width: 40%;
+		background-color: $dft-accent-color;
+		position: absolute;
+		// position: relative;
+		top: 1px;
+		left: 0;
+		@include transform(scaleX(0));
+		opacity: 0.4;
+		// @include transition(all ease 0.3s);
+
+		&.active {
+			animation: highlight-animation 0.3s;
+			-webkit-animation: hightlight-animation  0.3s;
+			// @include transform(scaleX(0));
+
+			-webkit-transform-origin: 0px;
+			transform-origin: 0px;
+		}
+	}	
+
+	.bottom-label {
+		color: $dft-accent-color;
+		position: absolute;
+		display: block;
+		display: none;
+		font-size: 12px;
+		margin-top: 4px;
+	}
+
+	&.active > .bottom-label{
+		display: block;
+	}
+
+	&.primary {
+		& .focus-line {
+			height: 1px;
+			background-color: $dft-primary-color;
+		}
+
+		&.active > .placeholder {
+			color: $dft-primary-color;
+		}
+	}
+}
